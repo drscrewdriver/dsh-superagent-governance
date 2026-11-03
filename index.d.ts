@@ -1,2 +1,0 @@
-// Reserved placeholder types.
-export {};

@@ -1,37 +1,110 @@
 {
-  "license": "MIT",
-  "author": "drscrewdriver",
-  "engines": {
-    "node": "^22.19.0 || >=24.0.0"
+  "name": "dsh-superagent-governance",
+  "version": "0.0.2",
+  "description": "DSH 两官制治理 preset：鱼总管（入口/转发/派发）+ 鱼阁老（定时巡检活跃 subagent、上报卡死）。派生自 deepseek-ai/dsh-superagent-prototype 语义 + Ruszero01/dsh-tang-governance 的预设-工具双层结构。非官方项目。",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./tool": {
+      "types": "./lib/types/tool.d.ts",
+      "default": "./lib/tool.js"
+    },
+    "./client": {
+      "types": "./lib/types/client/index.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
   },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-primitives",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.map",
+    "lib/types/**/*.d.ts",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node --watch-preserve-output --watch-path=src build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "pnpm run typecheck && pnpm run test && pnpm run build",
+    "prepack": "pnpm run check"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "superagent",
+    "governance",
+    "两官制",
+    "鱼总管",
+    "鱼阁老"
+  ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/drscrewdriver/dsh-superagent-governance.git"
   },
-  "name": "dsh-superagent-governance",
-  "files": [
-    "index.js",
-    "index.d.ts",
-    "README.md",
-    "LICENSE"
-  ],
+  "homepage": "https://github.com/drscrewdriver/dsh-superagent-governance#readme",
   "bugs": {
     "url": "https://github.com/drscrewdriver/dsh-superagent-governance/issues"
   },
-  "description": "Reserved placeholder for a DeepSeek Harness (DSH) 0.2.1-rc governance bundle derived from deepseek-ai/dsh-superagent-prototype: preset-based role remapping (转发官/管理官 variants) + 巡回御史 stuck-agent watcher. Not affiliated with deepseek-ai.",
-  "main": "index.js",
-  "homepage": "https://github.com/drscrewdriver/dsh-superagent-governance#readme",
-  "types": "index.d.ts",
-  "keywords": [
-    "dsh",
-    "deepseek-harness",
-    "superagent",
-    "reserved",
-    "placeholder"
-  ],
-  "version": "0.0.1",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org",
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": "0.2.1-rc.1 || 0.2.1-rc.2 || 0.2.1-rc.3 || 0.2.1-rc.4 || 0.2.1-rc.5"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-client-runtime": ">=0.2.1-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-client-ui-conversation": ">=0.2.1-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-client-ui-primitives": ">=0.2.1-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-client-ui-settings": ">=0.2.1-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-settings": ">=0.2.1-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-user-questions": ">=0.2.1-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-agent-presets": ">=0.2.1-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-subagent": ">=0.2.1-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-tools": ">=0.2.1-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-session": ">=0.2.1-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-system-prompt": ">=0.2.1-rc.1 <0.3.0",
+    "@deepseek-ai/dsh-llm": ">=0.2.1-rc.1 <0.3.0"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@types/node": "^24.0.0",
+    "@types/react": "~18.3.1",
+    "@types/react-dom": "~18.3.1",
+    "esbuild": "^0.28.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   }
 }

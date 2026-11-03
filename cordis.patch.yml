@@ -1,0 +1,5 @@
+# Mount the host half of the bundle. `dsh.client` in package.json lets the
+# web module scanner discover ./lib/client.js from the installed package.
+- insert:
+    - id: yu-governance
+      name: 'dsh-superagent-governance'

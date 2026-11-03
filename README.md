@@ -1,11 +1,11 @@
-# dsh-superagent
+# dsh-superagent-governance
 
 > **Reserved placeholder. Do NOT install.**
 
 This npm identifier is reserved for a future DeepSeek Harness (DSH) plugin
-on the `0.2.1-rc` line — a fork/derivative of the official research prototype
-[`deepseek-ai/dsh-superagent-prototype`][upstream], combined with governance
-semantics inspired by [`Ruszero01/dsh-tang-governance`][tang].
+on the `0.2.1-rc` line — a governance / inspector layer built on top of
+the official research prototype [`deepseek-ai/dsh-superagent-prototype`][upstream],
+cross-referenced with the role model of [`Ruszero01/dsh-tang-governance`][tang].
 
 [upstream]: https://github.com/deepseek-ai/dsh-superagent-prototype
 [tang]: https://github.com/Ruszero01/dsh-tang-governance
@@ -54,7 +54,7 @@ issue on [the GitHub repo][repo]. It will be deprecated or transferred
 under npm's normal name-change process — no claim is made on
 `superagent` (the popular HTTP library) or on any DeepSeek trademark.
 
-[repo]: https://github.com/drscrewdriver/dsh-superagent
+[repo]: https://github.com/drscrewdriver/dsh-superagent-governance
 
 ## License
 

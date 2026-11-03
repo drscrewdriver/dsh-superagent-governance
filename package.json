@@ -6,7 +6,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/drscrewdriver/dsh-superagent.git"
+    "url": "git+https://github.com/drscrewdriver/dsh-superagent-governance.git"
   },
   "name": "dsh-superagent-governance",
   "files": [
@@ -16,11 +16,11 @@
     "LICENSE"
   ],
   "bugs": {
-    "url": "https://github.com/drscrewdriver/dsh-superagent/issues"
+    "url": "https://github.com/drscrewdriver/dsh-superagent-governance/issues"
   },
-  "description": "Reserved placeholder for a DeepSeek Harness (DSH) derivative of deepseek-ai/dsh-superagent-prototype on the 0.2.1-rc line. Not affiliated with deepseek-ai.",
+  "description": "Reserved placeholder for a DeepSeek Harness (DSH) 0.2.1-rc governance bundle derived from deepseek-ai/dsh-superagent-prototype: preset-based role remapping (转发官/管理官 variants) + 巡回御史 stuck-agent watcher. Not affiliated with deepseek-ai.",
   "main": "index.js",
-  "homepage": "https://github.com/drscrewdriver/dsh-superagent#readme",
+  "homepage": "https://github.com/drscrewdriver/dsh-superagent-governance#readme",
   "types": "index.d.ts",
   "keywords": [
     "dsh",
